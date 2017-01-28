@@ -1,0 +1,52 @@
+{% extends "explore/base.html" %}
+{% load static %}
+{% block title %}Aligmnets!{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.1/dist/leaflet.css" />
+<link rel="stylesheet" href="{% static 'css/map_style.css' %}">
+{% endblock %}
+
+
+{% block content %}
+
+<div class="container-fluid fill">
+  <div class="row fill">
+    <!-- <div class="col-md-3">
+      <h1>{{sfrphase.title}}</h1>
+
+      <table class="table table-hover">
+        <tr><td>Cost Estimate</td><td>${{sfrphase.cost_estimate|floatformat}}M</td></tr>
+        <tr><td>Improved Risk</td><td>{{sfrphase.flood_improved_parcels|floatformat:"0"}} parcels</td></tr>
+        <tr><td>Eliminated Risk </td><td>{{sfrphase.flood_eliminated_parcels|floatformat:"0"}} parcels</td></tr>
+        <tr><td>Increased Risk </td><td>{{sfrphase.flood_increased_parcels|floatformat:"0"}} parcels</td></tr>
+        <tr><td>New Risk </td><td>{{sfrphase.flood_new_parcels|floatformat:"0"}} parcels</td></tr>
+      </table>
+
+      <div id="python-plot" class="responsive-plot"></div>
+
+
+    </div> -->
+    <div class="col-md-12 fill">
+      <div id="map_wrapper"></div>
+    </div>
+  </div>
+
+
+</div>
+
+{% endblock %}
+
+{% block extra_js %}
+<script src="https://unpkg.com/leaflet@1.0.1/dist/leaflet.js"></script>
+<!-- <script type="text/javascript" src="https://cdn.plot.ly/plotly-latest.min.js"></script> -->
+
+<script type="text/javascript">
+  data = {{divisions | safe}}
+
+
+</script>
+<!-- <script src="{% static 'js/make_plotly_responsive.js' %}"></script> -->
+<script src="{% static 'js/map_creation.js' %}"></script>
+{% endblock %}
