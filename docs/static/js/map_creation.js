@@ -21,7 +21,26 @@ map.on('load', function() {
   divisions_source = map.addSource('division-data', {'type': 'geojson', 'data': divisions});
   wards_source = map.addSource('ward-data', {'type': 'geojson','data': wards});
 
-
+  map.addLayer({
+    "id": "divisions",
+    'type': 'line',
+    "source": "division-data",
+    'paint': {
+      'line-color':'rgba(33,150,243,0.8)',
+      'line-width':0.75,
+    },
+    'layout': {'visibility': 'visible'},
+	});
+  map.addLayer({
+    "id": "divisions-click",
+    'type': 'fill',
+    "source": "division-data",
+    'paint': {
+      'fill-color':'rgba(33,150,243,0)',
+      'fill-outline-color':'rgba(33,150,243,0)',
+    },
+    'layout': {'visibility': 'visible'},
+	});
   map.addLayer({
     "id": "divisions-hover",
     'type': 'fill',
@@ -34,18 +53,7 @@ map.on('load', function() {
     'layout': {'visibility': 'visible'},
     'filter':["==", "DIVISION_NUM", ""],
 	});
-  map.addLayer({
-    "id": "divisions",
-    'type': 'line',
-    "source": "division-data",
-    'paint': {
-      'line-color':'rgba(33,150,243,0.9)',
-      'line-width':2,
-      // 'fill-outline-color':'rgba(33,150,243,0.9)',
-      // 'fill-antialias':true,
-    },
-    'layout': {'visibility': 'visible'},
-	});
+
   map.addLayer({
     "id": "wards",
     'type': 'line',
@@ -77,17 +85,13 @@ map.on('load', function() {
    geocoder.on('result', function(ev) {
        map.getSource('single-point').setData(ev.result.geometry);
        console.log(ev)
-      //  point = ev.result.geometry.coordinates;
-
-      //  var features = map.queryRenderedFeatures(ev.result.geometry, { layers: ['divisions'] });
-      //  console.log(features);
    });
 
     // When a click event occurs near a polygon, open a popup at the location of
     // the feature, with description HTML from its properties.
   map.on('click', function (e) {
     console.log(e.point)
-    var features = map.queryRenderedFeatures(e.point, { layers: ['divisions'] });
+    var features = map.queryRenderedFeatures(e.point, { layers: ['divisions-click'] });
     if (!features.length) {
         map.setFilter("divisions-hover", ["==", "DIVISION_NUM", ""]);
         return;
@@ -96,11 +100,23 @@ map.on('load', function() {
     var feature = features[0];
     console.log(feature)
 
-    if (feature.layer.id == 'divisions'){
+    if (feature.layer.id == 'divisions-click'){
       map.setFilter("divisions-hover", ["==", "DIVISION_NUM", feature.properties.DIVISION_NUM]);
-      ward = "Ward: " + feature.properties.DIVISION_NUM.slice(0, 2);
-      div = "Division: " + feature.properties.SHORT_DIV_NUM;
-      var html_message = [ward, div]
+      ward = "Ward " + feature.properties.DIVISION_NUM.slice(0, 2);
+      div = "Division " + feature.properties.SHORT_DIV_NUM;
+      peeps = JSON.parse(feature.properties.committeepeople);
+      peep_data = [];
+      for (var i = 0; i < peeps.length; i++) {
+        p = peeps[i]
+        com_person_str = p['FULL NAME'];
+        peep_data.push(com_person_str)
+      }
+      peep_data = peep_data.join('<br>')
+
+
+      console.log(peeps);
+      title = '<h4>' + ward + ' ' + div + '</h4>';
+      var html_message = [title, 'Committee People:', peep_data];
 
       var popup = new mapboxgl.Popup()
           .setLngLat(map.unproject(e.point))
@@ -112,7 +128,7 @@ map.on('load', function() {
     // Use the same approach as above to indicate that the symbols are clickable
     // by changing the cursor style to 'pointer'
     map.on('mousemove', function (e) {
-        var features = map.queryRenderedFeatures(e.point, { layers: ['divisions'] });
+        var features = map.queryRenderedFeatures(e.point, { layers: ['divisions-click'] });
         map.getCanvas().style.cursor = (features.length) ? 'pointer' : '';
     });
 
