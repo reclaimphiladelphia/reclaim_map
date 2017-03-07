@@ -21,17 +21,7 @@ map.on('load', function() {
   divisions_source = map.addSource('division-data', {'type': 'geojson', 'data': divisions});
   wards_source = map.addSource('ward-data', {'type': 'geojson','data': wards});
 
-  map.addLayer({
-    "id": "divisions",
-    'type': 'fill',
-    "source": "division-data",
-    'paint': {
-      'fill-color':'rgba(33,150,243,0.1)',
-      'fill-outline-color':'rgba(33,150,243,0.9)',
-      'fill-antialias':true,
-    },
-    'layout': {'visibility': 'visible'},
-	});
+
   map.addLayer({
     "id": "divisions-hover",
     'type': 'fill',
@@ -43,6 +33,18 @@ map.on('load', function() {
     },
     'layout': {'visibility': 'visible'},
     'filter':["==", "DIVISION_NUM", ""],
+	});
+  map.addLayer({
+    "id": "divisions",
+    'type': 'line',
+    "source": "division-data",
+    'paint': {
+      'line-color':'rgba(33,150,243,0.9)',
+      'line-width':2,
+      // 'fill-outline-color':'rgba(33,150,243,0.9)',
+      // 'fill-antialias':true,
+    },
+    'layout': {'visibility': 'visible'},
 	});
   map.addLayer({
     "id": "wards",
