@@ -37,7 +37,11 @@ var overlay = document.getElementById('map-overlay');
 
 
 map.on('load', function() {
-  var geocoder = new MapboxGeocoder({accessToken: mapboxgl.accessToken});
+  var geocoder = new MapboxGeocoder({
+    accessToken: mapboxgl.accessToken,
+    country: 'us',
+    bbox: [-75.280296, 39.867004, -74.955833, 40.137959],
+  });
   map.addControl(geocoder);
 
   //load interactive layers into the map
