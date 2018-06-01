@@ -19,7 +19,7 @@ function UIState(){
     url.searchParams.set('lat', Math.round(this.lat * 100000) / 100000);
     url.searchParams.set('z', Math.round(this.zoom * 100) / 100);
     url.searchParams.set('div',map_state.division);
-    window.history.pushState('page2', 'Title', '/phila_political/'+url.search);
+    window.history.pushState('page2', 'Title', url.search);
   }
 }
 
