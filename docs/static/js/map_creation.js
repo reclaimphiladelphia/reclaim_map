@@ -25,9 +25,9 @@ function UIState(){
 
 map_state = new UIState();
 
-mapboxgl.accessToken = 'pk.eyJ1IjoiYWVyaXNwYWhhIiwiYSI6ImNpdWp3ZTUwbDAxMHoyeXNjdDlmcG0zbDcifQ.mjQG7vHfOacyFDzMgxawzw';
+mapboxgl.accessToken = 'pk.eyJ1IjoicmVjbGFpbXBoaWxseW1hcCIsImEiOiJjamloeG5ybjkwMXA1M2ttd29zZXE4Z3BjIn0.4c2s740pOCRGV2n28KEkXw';
 var map = new mapboxgl.Map({
-    style:'mapbox://styles/aerispaha/cj9lvdi8q1yvs2rn24ytindg0',
+    style:'mapbox://styles/reclaimphillymap/cjj1s1d5n1rk02sprnrynnck4', //TEST MAP STYLE
     center: [map_state.lng, map_state.lat],
     zoom: map_state.zoom,
     container: 'map_wrapper',
@@ -47,7 +47,7 @@ map.on('load', function() {
   //load interactive layers into the map
   map.addSource('phila-ward-divisions', {
         "type": "vector",
-        "url": "mapbox://aerispaha.0ava9jx8"
+        "url": "mapbox://reclaimphillymap.8caqnfc5"
     });
   map.addSource('phila-wards', {
         "type": "vector",
@@ -69,7 +69,7 @@ map.on('load', function() {
     "id": "divisions-hover",
     'type': 'fill',
     "source": "phila-ward-divisions",
-    'source-layer':'divisions_cp-3bb6vb',
+    'source-layer':'divisions_cp-brpbku', //'divisions_cp-3bb6vb',
     'paint': {
       'fill-color':'rgba(33,150,243,0.5)',
     },
@@ -80,7 +80,7 @@ map.on('load', function() {
     "id": "divisions-click",
     'type': 'fill',
     "source": "phila-ward-divisions",
-    'source-layer':'divisions_cp-3bb6vb',
+    'source-layer':'divisions_cp-brpbku', //'divisions_cp-3bb6vb',
     'paint': {'fill-color':'rgba(33,150,243,0.01)'},
 	});
 
