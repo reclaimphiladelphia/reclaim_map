@@ -28,9 +28,16 @@ def join_committeepeople_to_divisions(cp_pth=None, div_pth=None, out_pth=None):
     print (cp_pth, div_pth, out_pth)
 
     #set_index to organize by ward and division
-    commpeeps = pd.read_csv(cp_pth)
-    df = commpeeps.set_index(['WARD', 'DIVISION'])
+    raw = pd.read_csv(cp_pth)
+    raw['WARD'] =  raw['PRECINCT'].str.split('-').str[0].astype(int)
+    raw['DIVISION'] = raw['PRECINCT'].str.split('-').str[1].astype(int)
+
+    df = raw.set_index(['WARD', 'DIVISION'])
     df = df.fillna('')
+    print( df.head())
+    # return 'cool'
+    df = df.rename(columns = {'SELECTION':'FULL NAME', 'STREET':'ADDRESS'})
+    df = df[['FULL NAME', 'ADDRESS', 'TOTAL']]
 
     #open the divisions geojson data (downloaded from opendataphilly)
     with open(div_pth, 'r') as f:
@@ -46,6 +53,7 @@ def join_committeepeople_to_divisions(cp_pth=None, div_pth=None, out_pth=None):
         ward =  int(properties['DIVISION_NUM'][:2])
         div = int(properties['DIVISION_NUM'][2:])
 
+        print (properties)
         try:
             #look up in dataframe
             peep_data = df.ix[ward, div]
