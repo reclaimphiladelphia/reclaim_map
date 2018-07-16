@@ -26,14 +26,14 @@ sources = [
     "name": "Philadelphia Divisions",
     "data":{
       "type": "vector",
-      "url": "mapbox://aerispaha.0ava9jx8"
+      "url": "mapbox://reclaimphillymap.dfdk5mxk"
     },
     "layers": [
       {
         "id": "phila-division-outlines",
         "type": "line",
         "source": "phila-divisions",
-        "source-layer": "divisions_cp-3bb6vb",
+        "source-layer": "divisions_cp_2018-28546a",
         "paint": {
           "line-color": "#389AEF",
           "line-width": 1,
