@@ -47,7 +47,7 @@ map.on('load', function() {
   //load interactive layers into the map
   map.addSource('phila-ward-divisions', {
         "type": "vector",
-        "url": "mapbox://reclaimphillymap.8caqnfc5"
+        "url": "mapbox://reclaimphillymap.dfdk5mxk"
     });
   map.addSource('phila-wards', {
         "type": "vector",
@@ -69,7 +69,7 @@ map.on('load', function() {
     "id": "divisions-hover",
     'type': 'fill',
     "source": "phila-ward-divisions",
-    'source-layer':'divisions_cp-brpbku', //'divisions_cp-3bb6vb',
+    'source-layer':'divisions_cp_2018-28546a', //'divisions_cp-3bb6vb',
     'paint': {
       'fill-color':'rgba(33,150,243,0.5)',
     },
@@ -80,7 +80,7 @@ map.on('load', function() {
     "id": "divisions-click",
     'type': 'fill',
     "source": "phila-ward-divisions",
-    'source-layer':'divisions_cp-brpbku', //'divisions_cp-3bb6vb',
+    'source-layer':'divisions_cp_2018-28546a', //'divisions_cp-3bb6vb',
     'paint': {'fill-color':'rgba(33,150,243,0.01)'},
 	});
 
