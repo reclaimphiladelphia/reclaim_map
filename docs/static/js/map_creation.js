@@ -118,7 +118,8 @@ map.on('load', function() {
     }
   });
 
-  loadSources(sources);
+  // UNCOMMENT TO ACTIVATE LAYER PICKER
+  // loadSources(sources);
 
   // Listen for the `geocoder.input` event that is triggered when a user
   // makes a selection and add a symbol that matches the result.

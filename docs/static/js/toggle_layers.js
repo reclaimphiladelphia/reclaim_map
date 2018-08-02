@@ -1,19 +1,18 @@
 sources = [
   {
-    "id":"committee-people",
-    "name":"Committee People",
+    "id":"us-congress",
+    "name":"US Congress",
     "data":{
       'type':"geojson",
-      "data":"https://gist.githubusercontent.com/natlownes/8093ceccc47d6bfbaaa4ca289b29398f/raw/b2d7d74e4a2db983bab9653a2faf0769c1935a8a/committee-people.geojson",
-      "cluster":true,
+      "data":"https://raw.githubusercontent.com/reclaimphiladelphia/reclaim_map/master/data/spatial/us-congress-2018.geojson",
     },
     "layers":[
       {
-        "id": "committee-people-layer",
-        'type': 'circle',
-        "source": "committee-people",
+        "id": "us-congress-layer",
+        "type": "line",
+        "source": "us-congress",
         'paint': {
-          'circle-color':'rgba(106,255,108,1)',
+          'line-color':'rgba(106,88,176,1)',
         },
         'layout': {
           'visibility': "visible"
@@ -22,20 +21,19 @@ sources = [
     ]
   },
   {
-    "id": "phila-divisions",
-    "name": "Philadelphia Divisions",
+    "id": "phila-council",
+    "name": "Phila City Council",
     "data":{
-      "type": "vector",
-      "url": "mapbox://reclaimphillymap.dfdk5mxk"
+      "type": "geojson",
+      "data": "https://raw.githubusercontent.com/reclaimphiladelphia/reclaim_map/master/data/spatial/philly-city-council-2018.geojson"
     },
     "layers": [
       {
-        "id": "phila-division-outlines",
+        "id": "phila-council-boundaries",
         "type": "line",
-        "source": "phila-divisions",
-        "source-layer": "divisions_cp_2018-28546a",
+        "source": "phila-council",
         "paint": {
-          "line-color": "#389AEF",
+          "line-color": "rgba(33,88,176,1)",
           "line-width": 1,
         },
         'layout': {
@@ -45,19 +43,41 @@ sources = [
     ]
   },
   {
-    "id": "cso_boundary",
-    "name":"CSO Boundary",
+    "id": "pa-legislative",
+    "name":"PA Legislative",
     "data":{
       "type": "geojson",
-      "data": "https://gist.githubusercontent.com/aerispaha/0deffe0b2dfb9af0620cf99f6f232bd6/raw/c374f98674cb2d3615fa321d54070b50d31da6c6/philadelphia_cso_areas.geojson"
+      "data": "https://raw.githubusercontent.com/reclaimphiladelphia/reclaim_map/master/data/spatial/pa-legis-2018.geojson"
     },
     "layers": [
       {
-        "id": "phila-cso-boundaries",
+        "id": "pa-legislative-boundaries",
         "type": "line",
-        "source": "cso_boundary",
+        "source": "pa-legislative",
         "paint": {
           'line-color':'rgba(200,120,20,0.8)',
+          'line-width':3,
+        },
+        'layout': {
+          'visibility': "visible"
+        }
+      }
+    ]
+  },
+  {
+    "id": "pa-senate",
+    "name":"PA Senate",
+    "data":{
+      "type": "geojson",
+      "data": "https://raw.githubusercontent.com/reclaimphiladelphia/reclaim_map/master/data/spatial/pa-senate-2018.geojson"
+    },
+    "layers": [
+      {
+        "id": "pa-senate-boundaries",
+        "type": "line",
+        "source": "pa-senate",
+        "paint": {
+          'line-color':'rgba(87,200,20,0.8)',
           'line-width':3,
         },
         'layout': {
