@@ -76,10 +76,14 @@ map.on('load', function() {
   });
   map.addControl(geocoder);
 
-  //load interactive layers into the map, even if they are in the basemap style
-  //loading them explicitly seems to improve the speed of filtering data
 
-  map.addSource('phila_ward_divisions_local', {
+  //load interactive layers into the map
+  map.addSource('phila-ward-divisions', {
+        "type": "vector",
+        "url": "mapbox://reclaimphillymap.dfdk5mxk"
+    });
+  map.addSource('phila-wards', {
+
         "type": "vector",
         "url": "mapbox://reclaimphillymap.dfdk5mxk"
     });
@@ -87,8 +91,9 @@ map.on('load', function() {
   map.addLayer({
     "id": "divisions-hover",
     'type': 'fill',
-    "source": "phila_ward_divisions_local",
-    'source-layer':'divisions_cp_2018-28546a',
+
+    "source": "phila-ward-divisions",
+    'source-layer':'divisions_cp_2018-28546a', //'divisions_cp-3bb6vb',
     'paint': {
       'fill-color':'rgba(33,150,243,0.5)',
     },
@@ -98,8 +103,9 @@ map.on('load', function() {
   map.addLayer({
     "id": "divisions-click",
     'type': 'fill',
-    "source": "phila_ward_divisions_local",
-    'source-layer':'divisions_cp_2018-28546a',
+
+    "source": "phila-ward-divisions",
+    'source-layer':'divisions_cp_2018-28546a', //'divisions_cp-3bb6vb',
     'paint': {'fill-color':'rgba(33,150,243,0.01)'},
 	});
 
