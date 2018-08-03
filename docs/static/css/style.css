@@ -23,7 +23,49 @@ a:hover{text-decoration:none;}
 .bk{
   background-color: #fff8f0;
 }
-
+.filter-ctrl {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: 1;
+    width: 180px;
+}
+#layerpicker {
+    background: #fff;
+    position: absolute;
+    z-index: 1;
+    top: 10px;
+    left: 10px;
+    border-radius: 3px;
+    width: 120px;
+    border: 1px solid rgba(0,0,0,0.4);
+    font-family: 'Open Sans', sans-serif;
+}
+#layerpicker a {
+    font-size: 13px;
+    color: #404040;
+    display: block;
+    margin: 0;
+    padding: 0;
+    padding: 10px;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(0,0,0,0.25);
+    text-align: center;
+}
+#layerpicker a:last-child {
+    border: none;
+}
+#layerpicker a:hover {
+    background-color: #f8f8f8;
+    color: #404040;
+}
+#layerpicker a.active {
+    background-color: #3887be;
+    color: #ffffff;
+}
+#layerpicker a.active:hover {
+    background: #3074a4;
+}
 
 @media (min-width: 992px){
   /*medium screen sizes*/

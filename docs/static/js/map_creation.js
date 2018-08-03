@@ -35,6 +35,38 @@ var map = new mapboxgl.Map({
 
 var overlay = document.getElementById('map-overlay');
 
+function toggleLayer(layerId) {
+  // Get the current visibility
+  var visibility = map.getLayoutProperty(layerId, 'visibility');
+  if (visibility == 'none') {
+    // If it's currently visible, let's set it to none
+    map.setLayoutProperty(layerId, 'visibility', 'visible');
+  } else if (visibility == 'visible') {
+    // If it's currently not visible, let's set it to visible
+    map.setLayoutProperty(layerId, 'visibility', 'none');
+  }
+}
+
+function addToLayerPicker(layer, name) {
+  var html = `<button onclick="toggleLayer('${layer.id}')">${name}</button>`;
+  var el = document.getElementById('layerpicker');
+  el.innerHTML += html;
+}
+
+function loadSources(sources) {
+  sources.forEach(source => {
+    // Add source to the map
+    map.addSource(source.id, source.data);
+    // Add each of that source's layers to the map
+    source.layers.forEach(layer => {
+      map.addLayer(layer);
+      // Add layer to state, which we will use as the source of truth
+      // about our layers. Any time information about the layers changes,
+      // that should be reflected on the state.
+      addToLayerPicker(layer, source.name);
+    })
+  })
+}
 
 map.on('load', function() {
   var geocoder = new MapboxGeocoder({
@@ -44,30 +76,22 @@ map.on('load', function() {
   });
   map.addControl(geocoder);
 
+
   //load interactive layers into the map
   map.addSource('phila-ward-divisions', {
         "type": "vector",
         "url": "mapbox://reclaimphillymap.dfdk5mxk"
     });
   map.addSource('phila-wards', {
+
         "type": "vector",
-        "url": "mapbox://aerispaha.bto5kb2v"
+        "url": "mapbox://reclaimphillymap.dfdk5mxk"
     });
-    map.addLayer({
-      "id": "wards-hover",
-      'type': 'line',
-      "source": "phila-wards",
-      'source-layer':'wards-9rgnox',
-      'paint': {
-        'line-color':'rgba(106,165,108,1)',
-        'line-width':3,
-      },
-      'filter':["==", "WARD_NUM", ""],
-  	}, 'waterway-label');
 
   map.addLayer({
     "id": "divisions-hover",
     'type': 'fill',
+
     "source": "phila-ward-divisions",
     'source-layer':'divisions_cp_2018-28546a', //'divisions_cp-3bb6vb',
     'paint': {
@@ -79,6 +103,7 @@ map.on('load', function() {
   map.addLayer({
     "id": "divisions-click",
     'type': 'fill',
+
     "source": "phila-ward-divisions",
     'source-layer':'divisions_cp_2018-28546a', //'divisions_cp-3bb6vb',
     'paint': {'fill-color':'rgba(33,150,243,0.01)'},
@@ -98,6 +123,9 @@ map.on('load', function() {
       "circle-color": "#007cbf"
     }
   });
+
+  // UNCOMMENT TO ACTIVATE LAYER PICKER
+  // loadSources(sources);
 
   // Listen for the `geocoder.input` event that is triggered when a user
   // makes a selection and add a symbol that matches the result.
@@ -140,8 +168,6 @@ map.on('load', function() {
         }
         peep_data = peep_data.join('<br>')
 
-
-        // console.log(peeps);
         title = '<h4>' + ward + ' ' + div + '</h4>';
         var html_message = [title, 'Committee People:', peep_data];
 
