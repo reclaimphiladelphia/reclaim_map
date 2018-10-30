@@ -3,26 +3,14 @@
 *Organizer and activist map developed by Reclaim Philadelphia*
 
 
-## Introduction
+## Summary
 The Reclaim Map project intends to help citizens of Philadelphia build
 grassroots political power by making it easy to understand their local
-political environment. We think that people will be more confident to create change when they can see who represents them and their community at the local level.
-
-
-communities are more influential when they
-work collectively, and we think  with our neighbors and
-
-
-
-the more people are more connected to their local communities, the more influential they can become by collective action.  
-when they can see who represents their community and how easy it can be
-to
-
-few of their neighbors' signatures are necessary to  
-in their neighborhood is
-
-who represents them and who it is they should
-work together with
+political environment. Our goal is to make an extremely intuitive web app
+that makes it easy for users to see where political boundaries lie, who
+represents them, and how to engage with local leaders. We think that people will
+feel more empowered to engage in electoral campaigns and direct action when they
+can see who represents them and their community at the local level. 
 
 ![reclima-map-overview](docs/static/img/reclaim-map-overview-screenshot.png)
 
