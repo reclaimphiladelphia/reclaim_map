@@ -1,4 +1,2 @@
-*.pyc
-*.ipynb
-.DS_Store
-*.sql
+node_modules/
+public/
