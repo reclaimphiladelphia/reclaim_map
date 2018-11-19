@@ -3,7 +3,31 @@
 *Organizer and activist map developed by Reclaim Philadelphia*
 
 
-### Summary
-A tool is proposed to help organizers in Philadelphia build capacity among their membership and inspire others to get involved by making it easy to understand and engage with their local political environment. The tool will allow users to understand exactly what local leaders (from committeeperson to U.S. representative) represent their community, how to contact them, and when they are up for reelection. While serving as a resource for experienced organizers, an important motivation for this tool is to lower the perceived threshold of entry into local politics and activism. The hope is that by providing Philadelphians with easy access to this information, more will become engaged, more will be inspired to hold their local representatives accountable, and more will consider challenging incumbents in future elections.
+## Summary
+The Reclaim Map project intends to help citizens of Philadelphia build
+grassroots political power by making it easy to understand their local
+political environment. Our goal is to make an extremely intuitive web app
+that makes it easy for users to see where political boundaries lie, who
+represents them, and how to engage with local leaders. We think that people will
+feel more empowered to engage in electoral campaigns and direct action when they
+can see who represents them and their community at the local level.
 
-A prototype of the map is hosted [here](https://reclaimphiladelphia.github.io/reclaim_map/).
+
+## Existing Features  
+The live prototype provides a simple interface showing the wards and divisions in Philadelphia. Within the UI, a search bar is provided in the top-right corner that let's users geolocate and zoom to addresses. Clicking on the map highlights the division boundary and presents a pop-up with presenting the ward and division number as well as the division committeepeople.   
+
+![reclima-map-overview](docs/static/img/reclaim-map-prototype-ui-screenshot.png)
+
+Map state is preserved by updating the URL parameters each time the map is adjusted or clicked. This allows users to share their map with others.  The prototype map is hosted [here](https://reclaimphiladelphia.github.io/reclaim_map/).
+
+
+## Next Steps
+Version 1.0 will build upon the existing functionality and provide users with more data and interactivity. Reclaim Map will most reconfigured to use Vue.js, starting with the app structure developed for the atlas.phila.gov project.
+
+#### UI Improvements
+A major addition to the UI will be a left-side navigation pane to provide more information and functionality to the rest of the app. There, users will be able to toggle different data layers and access more detailed information about campaigns, political leaders, upcoming elections.
+![reclima-map-overview](docs/static/img/reclaim-map-v1.0-screenshot.png)
+
+
+## Getting Involved
+We would love to have you help out! Get involved by checking out the issues and [Project](https://github.com/reclaimphiladelphia/reclaim_map/projects/1)
