@@ -161,7 +161,7 @@ mapboard.default({
   },
   panels: [
     'topics',
-    'map'
+    'map',
   ],
   components: [
     {
@@ -175,10 +175,10 @@ mapboard.default({
     defaultBasemap: 'pwd',
     defaultIdentifyFeature: 'address-marker',
     imagery: {
-      enabled: true
+      enabled: false
     },
     historicBasemaps: {
-      enabled: true
+      enabled: false
     },
     initialImagery: 'imagery2018',
   },
@@ -277,16 +277,9 @@ mapboard.default({
   },
   greeting: {
     initialMessage: '\
-      <h2>Atlas is your front door</h2>\
-      <p>Here are some things you can do with Atlas:</p>\
+      <h2>Reclaim Map</h2>\
       <div class="callout">\
-        <ul>\
-          <li>Lorem ipsum dolor sit amet, ut doctus lucilius nominati eam, ne aliqu</li>\
-          <li>id sapientem eum, at nobis periculis per. Debitis appareat appetere cu pri. Ad evertitur </li>\
-          <li>signiferumque est, mei ei copiosae recteque vulputate, his persecuti suscipiantur in</li>\
-          <li>Nisl liber animal in qui. Est saepe aliquip et. Populo suscipit voluptatum pri et</li>\
-          <li>Cu ius dolorem assentior, vis id nostrum dele</li>\
-        </ul>\
+      <p>The Reclaim Map project intends to help citizens of Philadelphia build grassroots political power by making it easy to understand their local political environment. Our goal is to make an extremely intuitive web app that makes it easy for users to see where political boundaries lie, who represents them, and how to engage with local leaders. We think that people will feel more empowered to engage in electoral campaigns and direct action when they can see who represents them and their community at the local level.</p>\
       </div>\
       <p>To get started, click anywhere on the map, or type an address, intersection, property assessment account number, or Department of Records Map Registry number into the search box.</p>\
     ',
