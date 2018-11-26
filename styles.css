@@ -21,6 +21,7 @@
 
 #application .site-header, #application .app-footer {
   background:  #0086c8;
+  display: none;
 }
 
 #application .site-header .page-title-container h1 {

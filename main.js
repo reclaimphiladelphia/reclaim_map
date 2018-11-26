@@ -161,7 +161,7 @@ mapboard.default({
   },
   panels: [
     'topics',
-    'map',
+    'map'
   ],
   components: [
     {
