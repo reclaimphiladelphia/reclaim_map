@@ -20,6 +20,12 @@ The live prototype provides a simple interface showing the wards and divisions i
 
 Map state is preserved by updating the URL parameters each time the map is adjusted or clicked. This allows users to share their map with others.  The prototype map is hosted [here](https://reclaimphiladelphia.github.io/reclaim_map/).
 
+## Recent Development Updates
+The latest progress on this branch (sidebar) includes a basic sidebar functionality
+(without using the atlas.phila.gov framework). This is daylighting a lot of the
+existing progress made to-date in the prototype. Now we can toggle layers off/on
+and control what is included via a [config file](docs/static/js/config.js).
+![reclima-map-update](docs/static/img/map-progress-181209.png)
 
 ## Next Steps
 Version 1.0 will build upon the existing functionality and provide users with more data and interactivity. Reclaim Map will most reconfigured to use Vue.js, starting with the app structure developed for the atlas.phila.gov project.

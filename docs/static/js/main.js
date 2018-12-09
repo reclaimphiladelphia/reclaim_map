@@ -19,7 +19,7 @@ map.on('load', function() {
 
   // LOAD LAYER PICKER
   toggleableLayerIds = [];
-  loadSources(sources_01);
+  loadSources(sources);
   loadPolygonLayers(polygonLayers);
   loadLayers(other_layers);
 
