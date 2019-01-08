@@ -66,7 +66,7 @@ polygonLayers = [
     'source-layer':'divisions_cp_2018-28546a',
     'color': 'rgba(33,150,243,0.5)',
     'layout': {
-      'visibility': "visible"
+      'visibility': "none"
     },
     'filterKey': "DIVISION_NUM",
   },

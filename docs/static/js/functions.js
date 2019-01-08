@@ -7,7 +7,9 @@ function UIState(){
   this.lng = url.searchParams.get('lng') || -75.15819172765856;
   this.lat = url.searchParams.get('lat') || 39.94848811327782;
   this.zoom = url.searchParams.get('z') || 13;
-  this.division = url.searchParams.get('div') || '';
+  this.filterVal = url.searchParams.get('fval') || '';
+  this.activeLayer = url.searchParams.get('lyr') || 'phila-wards';
+  
   // that = this;
   this.update_url = function(){
 
@@ -17,44 +19,55 @@ function UIState(){
     url.searchParams.set('lng', Math.round(this.lng * 100000) / 100000);
     url.searchParams.set('lat', Math.round(this.lat * 100000) / 100000);
     url.searchParams.set('z', Math.round(this.zoom * 100) / 100);
-    url.searchParams.set('div',map_state.division);
+    url.searchParams.set('fval', map_state.filterVal);
+    url.searchParams.set('lyr', map_state.activeLayer);
     window.history.pushState('page2', 'Title', url.search);
   }
 }
 
-
 function toggleLayer(layerId) {
   // toggle a layer on/off
-
   console.log(layerId);
+  if (map_state.activeLayer && map_state.activeLayer != layerId){
+    showHideLayer(map_state.activeLayer, 'none');
+  }
+  map_state.activeLayer = layerId;
+  showHideLayer(map_state.activeLayer, 'visible');
+
+  // update the url params
+  map_state.update_url();
+}
+
+
+
+function showHideLayer(layerId, visibiliyFlag) {
+  // toggle a layer on/off
+
+  // get the layer object
   var layer = polygonLayers.find(obj => {
     return obj.id === layerId
   });
-  function toggleSingleLayer (id){
-    // Get the current visibility
-    var visibility = map.getLayoutProperty(id, 'visibility');
-    if (visibility == 'none') {
-      // If it's currently visible, let's set it to none
-      map.setLayoutProperty(id, 'visibility', 'visible');
-    } else if (visibility == 'visible') {
-      // If it's currently not visible, let's set it to visible
-      map.setLayoutProperty(id, 'visibility', 'none');
-    }
+
+  function showHideSingleLayer (id, visibiliyFlag){
+    map.setLayoutProperty(id, 'visibility', visibiliyFlag);
   };
 
   if (layer.hasOwnProperty('layerComponents')) {
     layer.layerComponents.forEach(component => {
-      toggleSingleLayer(component.id);
+      showHideSingleLayer(component.id, visibiliyFlag);
     });
   }
   else {
-    toggleSingleLayer(layerId);
+    showHideSingleLayer(layerId, visibiliyFlag);
   }
 }
 
 
 function addToLayerPicker(layer, name) {
-  var html = `<button onclick="toggleLayer('${layer.id}')">${name}</button>`;
+  var html = `
+  <input id="${layer.id}-radio" type="radio" name="toggleLayer"/>
+  <label onclick="toggleLayer('${layer.id}');" for="${layer.id}-radio">${name}</label> <br>`
+
   var el = document.getElementById('layerpicker');
   el.innerHTML += html;
 }

@@ -30,15 +30,15 @@ a:hover{text-decoration:none;}
     z-index: 1;
     width: 180px;
 }
+/* .toggleLayerPicker: checked + span{font-weight: bold;} */
+
+input[type="radio"]:checked+label { font-weight: bold; }
 #layerpicker {
-    background: #fff;
-    position: absolute;
+    /* background: #fff; */
+    position: relative;
     z-index: 1;
     top: 10px;
     left: 10px;
-    border-radius: 3px;
-    width: 120px;
-    border: 1px solid rgba(0,0,0,0.4);
     font-family: 'Open Sans', sans-serif;
 }
 #layerpicker a {
@@ -49,7 +49,7 @@ a:hover{text-decoration:none;}
     padding: 0;
     padding: 10px;
     text-decoration: none;
-    border-bottom: 1px solid rgba(0,0,0,0.25);
+    /* border-bottom: 1px solid rgba(0,0,0,0.25); */
     text-align: center;
 }
 #layerpicker a:last-child {
