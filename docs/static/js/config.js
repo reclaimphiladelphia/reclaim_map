@@ -77,7 +77,7 @@ polygonLayers = [
     'source-layer':'wards-0s9tle',
     'color': 'hsla(122, 25%, 53%, 0.9)',
     'layout': {
-      'visibility': "visible"
+      'visibility': "none"
     },
     "is_toggleable":true,
     'filterKey': 'OBJECTID',
