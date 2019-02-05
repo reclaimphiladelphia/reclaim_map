@@ -36,7 +36,6 @@ var map = new mapboxgl.Map({
 var overlay = document.getElementById('map-overlay');
 
 function toggleLayer(layerId) {
-  console.log(layerId);
   // Get the current visibility
   var visibility = map.getLayoutProperty(layerId, 'visibility');
   if (visibility == 'none') {
@@ -64,11 +63,7 @@ function loadSources(sources) {
       // Add layer to state, which we will use as the source of truth
       // about our layers. Any time information about the layers changes,
       // that should be reflected on the state.
-      if (layer.hasOwnProperty('is_toggleable')){
-        if (layer.is_toggleable){
-          addToLayerPicker(layer, layer.id);
-        }
-      }
+      addToLayerPicker(layer, source.name);
     })
   })
 }
@@ -81,9 +76,56 @@ map.on('load', function() {
   });
   map.addControl(geocoder);
 
+
+  //load interactive layers into the map
+  map.addSource('phila-ward-divisions', {
+        "type": "vector",
+        "url": "mapbox://reclaimphillymap.dfdk5mxk"
+    });
+  map.addSource('phila-wards', {
+
+        "type": "vector",
+        "url": "mapbox://reclaimphillymap.dfdk5mxk"
+    });
+
+  map.addLayer({
+    "id": "divisions-hover",
+    'type': 'fill',
+
+    "source": "phila-ward-divisions",
+    'source-layer':'divisions_cp_2018-28546a', //'divisions_cp-3bb6vb',
+    'paint': {
+      'fill-color':'rgba(33,150,243,0.5)',
+    },
+    'filter':["==", "DIVISION_NUM", map_state.division],
+	}, 'waterway-label');
+
+  map.addLayer({
+    "id": "divisions-click",
+    'type': 'fill',
+
+    "source": "phila-ward-divisions",
+    'source-layer':'divisions_cp_2018-28546a', //'divisions_cp-3bb6vb',
+    'paint': {'fill-color':'rgba(33,150,243,0.01)'},
+	});
+
+  //Geocoder point layer
+  map.addSource('single-point', {
+    "type": "geojson",
+    "data": {"type": "FeatureCollection","features": []}
+  });
+  map.addLayer({
+    "id": "point",
+    "source": "single-point",
+    "type": "circle",
+    "paint": {
+      "circle-radius": 10,
+      "circle-color": "#007cbf"
+    }
+  });
+
   // UNCOMMENT TO ACTIVATE LAYER PICKER
-  loadSources(sources);
-  map.setFilter("divisions-hover", ["==", "DIVISION_NUM", map_state.division]);
+  // loadSources(sources);
 
   // Listen for the `geocoder.input` event that is triggered when a user
   // makes a selection and add a symbol that matches the result.
