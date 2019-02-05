@@ -64,7 +64,7 @@ polygonLayers = [
     "is_toggleable":true,
     "source": "phila-ward-divisions",
     'source-layer':'divisions_cp_2018-28546a',
-    'color': 'rgba(33,150,243,0.5)',
+    'color': 'hsla(122, 25%, 53%, 0.9)',
     'layout': {
       'visibility': "none"
     },
@@ -86,7 +86,7 @@ polygonLayers = [
     "id": "us-congress-layer",
     'name': 'U.S. Congress',
     "source": "us-congress",
-    'color':'rgba(106,88,176,0.8)',
+    'color': 'hsla(122, 25%, 53%, 0.9)',
     'layout': {
       'visibility': "none"
     },
@@ -97,7 +97,7 @@ polygonLayers = [
     "id": "phila-council-boundaries",
     "name": 'City Council',
     "source": "phila-council",
-    "color": "rgba(33,88,176,0.7)",
+    'color': 'hsla(122, 25%, 53%, 0.9)',
     'layout': {
       'visibility': "none"
     },
@@ -108,7 +108,7 @@ polygonLayers = [
     "id": "pa-legislative-boundaries",
     'name': 'PA Legislative',
     "source": "pa-legislative",
-    'color':'rgba(200,120,20,0.7)',
+    'color': 'hsla(122, 25%, 53%, 0.9)',
     'layout': {
       'visibility': "none"
     },
@@ -119,7 +119,7 @@ polygonLayers = [
     "id": "pa-senate-boundaries",
     'name': 'PA Senate',
     "source": "pa-senate",
-    'color':'rgba(87,200,20,0.7)',
+    'color': 'hsla(122, 25%, 53%, 0.9)',
     'layout': {
       'visibility': "none"
     },

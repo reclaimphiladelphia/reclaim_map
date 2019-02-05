@@ -9,7 +9,7 @@ function UIState(){
   this.zoom = url.searchParams.get('z') || 13;
   this.filterVal = url.searchParams.get('fval') || '';
   this.activeLayer = url.searchParams.get('lyr') || 'phila-wards';
-  
+
   // that = this;
   this.update_url = function(){
 
@@ -97,8 +97,9 @@ function createClickablePolygonLayer(layerConfig){
   hightlight_layer = JSON.parse(JSON.stringify(layerConfig));
   hightlight_layer['id'] = hightlight_layer['id'] + '-highlight';
   hightlight_layer['type'] = 'fill';
-  hightlight_layer['paint']['fill-color'] = hightlight_layer['color']
-  hightlight_layer['filter'] = ["==", hightlight_layer['filterKey'], ''],
+  hightlight_layer['paint']['fill-color'] = hightlight_layer['color'];
+  hightlight_layer['paint']['fill-opacity'] = 0.5;
+  hightlight_layer['filter'] = ["==", hightlight_layer['filterKey'], ''];
 
   // create outline layer
   outline_layer = JSON.parse(JSON.stringify(layerConfig));
@@ -121,7 +122,7 @@ function loadPolygonLayers(layers) {
     polygonObj = createClickablePolygonLayer(layerConfig);
     // Add each of layers to the map
     polygonObj.layerComponents.forEach(layer => {
-      map.addLayer(layer);
+      map.addLayer(layer, 'waterway-label');
     });
 
     // Add layer to state, which we will use as the source of truth
