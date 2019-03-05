@@ -36,7 +36,7 @@ sources = [
     "name":"PA Legislative",
     "data":{
       "type": "geojson",
-      "data": "https://raw.githubusercontent.com/reclaimphiladelphia/reclaim_map/master/data/spatial/pa-legis-2018.geojson"
+      "data": "https://raw.githubusercontent.com/reclaimphiladelphia/reclaim_map/master/data/spatial/pa-legis-named-2018.geojson"
     }
   },
   {
