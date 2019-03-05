@@ -44,7 +44,7 @@ sources = [
     "name":"PA Senate",
     "data":{
       "type": "geojson",
-      "data": "https://raw.githubusercontent.com/reclaimphiladelphia/reclaim_map/master/data/spatial/pa-senate-2018.geojson"
+      "data": "https://raw.githubusercontent.com/reclaimphiladelphia/reclaim_map/master/data/spatial/pa-senate-named-2018.geojson"
     }
   },
   {
