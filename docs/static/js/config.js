@@ -3,16 +3,16 @@ sources = [
     "id":"phila-ward-divisions",
     "name":"Divisions",
     "data":{
-      "type": "vector",
-      "url": "mapbox://reclaimphillymap.dfdk5mxk"
+      "type": "geojson",
+      "data": "https://raw.githubusercontent.com/aerispaha/reclaim_map/dev/data/spatial/20190401/divisions-officials.geojson"
     },
   },
   {
     "id":"phila-wards",
     "name":"Philly Wards",
     "data":{
-      "type": "vector",
-      "url": "mapbox://reclaimphillymap.6b3b121k",
+      "type": "geojson",
+      "data": "https://raw.githubusercontent.com/aerispaha/reclaim_map/dev/data/spatial/20190401/wards-officials.geojson"
     }
   },
   {
@@ -28,7 +28,7 @@ sources = [
     "name": "Phila City Council",
     "data":{
       "type": "geojson",
-      "data": "https://raw.githubusercontent.com/reclaimphiladelphia/reclaim_map/master/data/spatial/philly-city-council-2018.geojson"
+      "data": "https://raw.githubusercontent.com/aerispaha/reclaim_map/dev/data/spatial/20190401/philly-council-officials.geojson"
     }
   },
   {
@@ -36,7 +36,7 @@ sources = [
     "name":"PA Legislative",
     "data":{
       "type": "geojson",
-      "data": "https://raw.githubusercontent.com/reclaimphiladelphia/reclaim_map/master/data/spatial/pa-legis-2018.geojson"
+      "data": "https://raw.githubusercontent.com/reclaimphiladelphia/reclaim_map/master/data/spatial/pa-legis-named-2018.geojson"
     }
   },
   {
@@ -44,7 +44,7 @@ sources = [
     "name":"PA Senate",
     "data":{
       "type": "geojson",
-      "data": "https://raw.githubusercontent.com/reclaimphiladelphia/reclaim_map/master/data/spatial/pa-senate-2018.geojson"
+      "data": "https://raw.githubusercontent.com/aerispaha/reclaim_map/dev/data/spatial/pa-senate-named-2018.geojson"
     }
   },
   {
@@ -63,30 +63,30 @@ polygonLayers = [
     'name':"Divisions",
     "is_toggleable":true,
     "source": "phila-ward-divisions",
-    'source-layer':'divisions_cp_2018-28546a',
-    'color': 'rgba(33,150,243,0.5)',
+    // 'source-layer':'divisions_cp_2018-28546a',
+    'color': 'hsla(122, 25%, 53%, 0.9)',
     'layout': {
-      'visibility': "visible"
+      'visibility': "none"
     },
-    'filterKey': "DIVISION_NUM",
+    'filterKey': "district_num",
   },
   {
     "id": "phila-wards",
     'name':"Wards",
     "source": "phila-wards",
-    'source-layer':'wards-0s9tle',
+    // 'source-layer':'wards-0s9tle',
     'color': 'hsla(122, 25%, 53%, 0.9)',
     'layout': {
-      'visibility': "visible"
+      'visibility': "none"
     },
     "is_toggleable":true,
-    'filterKey': 'OBJECTID',
+    'filterKey': 'district_num',
   },
   {
     "id": "us-congress-layer",
     'name': 'U.S. Congress',
     "source": "us-congress",
-    'color':'rgba(106,88,176,0.8)',
+    'color': 'hsla(122, 25%, 53%, 0.9)',
     'layout': {
       'visibility': "none"
     },
@@ -97,18 +97,18 @@ polygonLayers = [
     "id": "phila-council-boundaries",
     "name": 'City Council',
     "source": "phila-council",
-    "color": "rgba(33,88,176,0.7)",
+    'color': 'hsla(122, 25%, 53%, 0.9)',
     'layout': {
       'visibility': "none"
     },
     "is_toggleable":true,
-    'filterKey': 'name',
+    'filterKey': 'district_num',
   },
   {
     "id": "pa-legislative-boundaries",
     'name': 'PA Legislative',
     "source": "pa-legislative",
-    'color':'rgba(200,120,20,0.7)',
+    'color': 'hsla(122, 25%, 53%, 0.9)',
     'layout': {
       'visibility': "none"
     },
@@ -119,7 +119,7 @@ polygonLayers = [
     "id": "pa-senate-boundaries",
     'name': 'PA Senate',
     "source": "pa-senate",
-    'color':'rgba(87,200,20,0.7)',
+    'color': 'hsla(122, 25%, 53%, 0.9)',
     'layout': {
       'visibility': "none"
     },

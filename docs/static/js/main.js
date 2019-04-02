@@ -23,8 +23,12 @@ map.on('load', function() {
   loadPolygonLayers(polygonLayers);
   loadLayers(other_layers);
 
-  // NOTE: This needs to be generalized
-  map.setFilter("divisions-highlight", ["==", "DIVISION_NUM", map_state.division]);
+  map_state.activeLayerObject = polygonLayers.find(obj => {
+    return obj.id === map_state.activeLayer
+  });
+  map.setFilter(map_state.activeLayer+"-highlight", ["==", map_state.activeLayerObject['filterKey'], map_state.filterVal]);
+  toggleLayer(map_state.activeLayer) //set the active layer
+  map_state.update_url();
 
   // Listen for the `geocoder.input` event that is triggered when a user
   // makes a selection and add a symbol that matches the result.
@@ -49,11 +53,12 @@ map.on('load', function() {
     //grab the layer config object
     var layer = polygonLayers.find(obj => { return obj.id === configid});
 
-    // filter the high;ight layer to show only the clicked polygon
+    // filter the highLight layer to show only the clicked polygon, store in map state
     map.setFilter(
       highlightid,
       ["==", layer.filterKey, feature.properties[layer.filterKey]]
     );
+    map_state.filterVal = feature.properties[layer.filterKey];
 
     html_message_start = '<strong>' + layer.name + '</strong><hr>';
     html_message = [];
@@ -68,7 +73,13 @@ map.on('load', function() {
         .setLngLat(map.unproject(e.point))
         .setHTML(html_message_str)
         .addTo(map);
+
+    // update URL params
+    map_state.update_url();
   });
+
+  // update URL params
+  map_state.update_url();
 
   // Use the same approach as above to indicate that the symbols are clickable
   // by changing the cursor style to 'pointer'
