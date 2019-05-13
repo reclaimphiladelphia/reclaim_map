@@ -3,9 +3,26 @@ html, body {
     background-color: #f0f0f0;
 }
 .main-logo{
-  max-height: 67px;  
+  max-height: 57px;
 }
 a:hover{text-decoration:none;}
+#map_wrapper {
+  position: absolute;
+  top:0;
+  bottom:0;
+  left:250px;
+  right:0;
+}
+
+#sidebar{
+  position:absolute;
+  background-color: #ffffff;
+  /* background-color: #0986c8; */
+  top:0;
+  bottom:0;
+  left:0;
+  width:250px;
+}
 .sticky-sidebar{
   background: url(../img/bear.jpeg) no-repeat center center;
   background-size: cover;
@@ -69,7 +86,9 @@ input[type="radio"]:checked+label { font-weight: bold; }
 #layerpicker a.active:hover {
     background: #3074a4;
 }
-
+#nav-header{
+  background: #0986c8;
+}
 @media (min-width: 992px){
   /*medium screen sizes*/
   .parent{
