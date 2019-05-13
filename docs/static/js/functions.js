@@ -135,6 +135,29 @@ function loadPolygonLayers(layers) {
     }
   })
 }
+
+function makePopUpHTML(feature) {
+  html_message_start = '<strong>' + feature.properties['district_name'] + '</strong><br>';
+  html_message = [];
+  keys_to_include = ['official_name'];
+
+  Object.keys(feature.properties).forEach(function(key) {
+    if (keys_to_include.includes(key) ){
+      html_message.push(feature.properties[key])
+    }
+    if (key.toLowerCase() == 'url'){
+      atag = "<a href=" + feature.properties[key] + ">details</a>"
+      html_message.push(atag)
+    }
+  });
+  
+  html_message_str = html_message.join('<br>');
+  html_message_str = html_message_str.replace(',', '<br>');
+  html_message_str = html_message_start + html_message_str;
+
+  return html_message_str;
+}
+
 function loadLayers(layers) {
   layers.forEach(layerConfig => {
     // Add each of layers to the map

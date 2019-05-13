@@ -60,18 +60,10 @@ map.on('load', function() {
     );
     map_state.filterVal = feature.properties[layer.filterKey];
 
-    html_message_start = '<strong>' + layer.name + '</strong><hr>';
-    html_message = [];
-    Object.keys(feature.properties).forEach(function(key) {
-      // console.log(key, feature.properties[key]);
-      html_message.push(key + ': ' + feature.properties[key])
-    });
-    html_message_str = html_message.join('<br>');
-    html_message_str = html_message_str.replace(',', '<br>')
-    html_message_str = html_message_start + html_message_str;
+    popUpHTML = makePopUpHTML(feature);
     var popup = new mapboxgl.Popup()
         .setLngLat(map.unproject(e.point))
-        .setHTML(html_message_str)
+        .setHTML(popUpHTML)
         .addTo(map);
 
     // update URL params
