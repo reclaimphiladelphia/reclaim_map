@@ -7,7 +7,7 @@ function UIState(){
   this.lng = url.searchParams.get('lng') || -75.15819172765856;
   this.lat = url.searchParams.get('lat') || 39.94848811327782;
   this.zoom = url.searchParams.get('z') || 13;
-  this.filterVal = url.searchParams.get('fval') || '';
+  this.filterVal = Number(url.searchParams.get('fval') || NaN);
   this.activeLayer = url.searchParams.get('lyr') || 'phila-wards';
 
   // that = this;
@@ -64,9 +64,15 @@ function showHideLayer(layerId, visibiliyFlag) {
 
 
 function addToLayerPicker(layer, name) {
+  // set layer toggle buttons to map_state
+  var checked = '';
+  if (map_state.activeLayer == layer.id){ checked = 'checked'; }
+
   var html = `
-  <input id="${layer.id}-radio" type="radio" name="toggleLayer"/>
-  <label onclick="toggleLayer('${layer.id}');" for="${layer.id}-radio">${name}</label> <br>`
+  <input type="radio" class="hide" id="${layer.id}-radio" name="toggleLayer" value="${name}" ${checked}>
+  <label for="${layer.id}-radio" onclick="toggleLayer('${layer.id}');">
+    ${name} <i class="fa fa-fw fa-eye"></i>
+  </label><br>`
 
   var el = document.getElementById('layerpicker');
   el.innerHTML += html;
@@ -150,7 +156,7 @@ function makePopUpHTML(feature) {
       html_message.push(atag)
     }
   });
-  
+
   html_message_str = html_message.join('<br>');
   html_message_str = html_message_str.replace(',', '<br>');
   html_message_str = html_message_start + html_message_str;
