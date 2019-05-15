@@ -70,7 +70,7 @@ function addToLayerPicker(layer, name) {
 
   var html = `
   <input type="radio" class="hide" id="${layer.id}-radio" name="toggleLayer" value="${name}" ${checked}>
-  <label for="${layer.id}-radio" onclick="toggleLayer('${layer.id}');">
+  <label for="${layer.id}-radio" onclick="toggleLayer('${layer.id}');" class="toggle-button">
     ${name} <i class="fa fa-fw fa-eye"></i>
   </label><br>`
 
