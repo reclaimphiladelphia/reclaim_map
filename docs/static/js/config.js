@@ -20,7 +20,7 @@ sources = [
     "name":"US Congress",
     "data":{
       'type':"geojson",
-      "data":"https://raw.githubusercontent.com/reclaimphiladelphia/reclaim_map/master/data/spatial/us-congress-2018.geojson",
+      "data":"https://raw.githubusercontent.com/aerispaha/reclaim_map/dev/data/spatial/20190401/pa-us-congress-officials-2019.geojson",
     }
   },
   {
@@ -36,7 +36,7 @@ sources = [
     "name":"PA Legislative",
     "data":{
       "type": "geojson",
-      "data": "https://raw.githubusercontent.com/reclaimphiladelphia/reclaim_map/master/data/spatial/pa-legis-named-2018.geojson"
+      "data": "https://raw.githubusercontent.com/aerispaha/reclaim_map/dev/data/spatial/20190401/pa-legis-officials-2019.geojson"
     }
   },
   {
@@ -44,7 +44,7 @@ sources = [
     "name":"PA Senate",
     "data":{
       "type": "geojson",
-      "data": "https://raw.githubusercontent.com/aerispaha/reclaim_map/dev/data/spatial/pa-senate-named-2018.geojson"
+      "data": "https://raw.githubusercontent.com/aerispaha/reclaim_map/dev/data/spatial/20190401/pa-senate-officials-2019.geojson"
     }
   },
   {
@@ -91,7 +91,7 @@ polygonLayers = [
       'visibility': "none"
     },
     "is_toggleable":true,
-    'filterKey': 'name',
+    'filterKey': 'district_num',
   },
   {
     "id": "phila-council-boundaries",
@@ -113,7 +113,7 @@ polygonLayers = [
       'visibility': "none"
     },
     "is_toggleable":true,
-    'filterKey':'name',
+    'filterKey':'district_num',
   },
   {
     "id": "pa-senate-boundaries",
@@ -124,7 +124,7 @@ polygonLayers = [
       'visibility': "none"
     },
     "is_toggleable":true,
-    'filterKey':'name',
+    'filterKey':'district_num',
   }
 ];
 
