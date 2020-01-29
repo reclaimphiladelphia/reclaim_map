@@ -90,6 +90,7 @@ map.on('moveend', function(ev) {
 
 $('#sidebarCollapse').on('click', function () {
     $('#layerpicker, #map_wrapper').toggleClass('active');
+    $('#sidebarCollapse span').toggleClass('active');
     $('.collapse.in').toggleClass('in');
     $('a[aria-expanded=true]').attr('aria-expanded', 'false');
 
