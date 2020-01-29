@@ -68,13 +68,13 @@ function addToLayerPicker(layer, name) {
   var checked = '';
   if (map_state.activeLayer == layer.id){ checked = 'checked'; }
 
-  var html = `
+  var html = `<li>
   <input type="radio" class="hide" id="${layer.id}-radio" name="toggleLayer" value="${name}" ${checked}>
   <label for="${layer.id}-radio" onclick="toggleLayer('${layer.id}');" class="toggle-button">
     ${name} <i class="fa fa-fw fa-eye"></i>
-  </label><br>`
+  </label></li>`
 
-  var el = document.getElementById('layerpicker');
+  var el = document.getElementById('layerPickerList');
   el.innerHTML += html;
 }
 

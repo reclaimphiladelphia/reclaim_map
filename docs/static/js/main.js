@@ -86,3 +86,12 @@ map.on('moveend', function(ev) {
     //update map_state object after moving the view
     map_state.update_url();
 });
+
+
+$('#sidebarCollapse').on('click', function () {
+    $('#layerpicker, #map_wrapper').toggleClass('active');
+    $('#sidebarCollapse span').toggleClass('active');
+    $('.collapse.in').toggleClass('in');
+    $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+
+});
