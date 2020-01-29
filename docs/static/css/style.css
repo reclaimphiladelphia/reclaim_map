@@ -112,10 +112,11 @@ input[type="radio"]:checked + label > .fa-eye:before { content: "\f06e"; }
 .tglBtn{
   opacity: 0;
   transition: all 0.8s cubic-bezier(0.810, -0.330, 0.345, 1.375);
-  float: left;
+  display: none;
 }
 .tglBtn.active{
   opacity: 1;
+  display: block;
 }
 /* ---------------------------------------------------
     MEDIAQUERIES
