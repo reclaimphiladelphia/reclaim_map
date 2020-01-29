@@ -2,7 +2,7 @@ map_state = new UIState();
 
 mapboxgl.accessToken = 'pk.eyJ1IjoicmVjbGFpbXBoaWxseW1hcCIsImEiOiJjamloeG5ybjkwMXA1M2ttd29zZXE4Z3BjIn0.4c2s740pOCRGV2n28KEkXw';
 var map = new mapboxgl.Map({
-    style:'mapbox://styles/reclaimphillymap/cjrqz8h0v02c62sl3ebh4k1g5',
+    style:'mapbox://styles/reclaimphillymap/cjj1s1d5n1rk02sprnrynnck4', //TEST MAP STYLE
     center: [map_state.lng, map_state.lat],
     zoom: map_state.zoom,
     container: 'map_wrapper',
