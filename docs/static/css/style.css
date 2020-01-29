@@ -1,97 +1,129 @@
 html, body {
-    height: 100%;
     background-color: #f0f0f0;
 }
-a:hover{text-decoration:none;}
-.sticky-sidebar{
-  background: url(../img/bear.jpeg) no-repeat center center;
-  background-size: cover;
-  min-height: 100%;
-  height: 100%;
-  /*width here is controlled by $('[data-clampedwidth]')*/
-  color: #fdfdfd;
+.main-logo{
+  max-height: 57px;
 }
-.img-bg-fill{
-  /*OVERIDE THE IMG URL FOR SPECIFC USE*/
-  background: url(../img/ocean.jpeg) no-repeat center center;
-  background-size: cover;
-  min-height: 100%;
-  height: 100%;
-  /*width here is controlled by $('[data-clampedwidth]')*/
-  color: #fdfdfd;
+
+.wrapper {
+  display: flex;
+  width: 100%;
+  align-items: stretch;
 }
-.bk{
-  background-color: #fff8f0;
-}
-.filter-ctrl {
-    position: absolute;
-    top: 10px;
-    left: 10px;
-    z-index: 1;
-    width: 180px;
-}
+
+/* ---------------------------------------------------
+    SIDEBAR STYLE
+----------------------------------------------------- */
 #layerpicker {
-    background: #fff;
-    position: absolute;
-    z-index: 1;
-    top: 10px;
-    left: 10px;
-    border-radius: 3px;
-    width: 120px;
-    border: 1px solid rgba(0,0,0,0.4);
-    font-family: 'Open Sans', sans-serif;
-}
-#layerpicker a {
-    font-size: 13px;
-    color: #404040;
-    display: block;
-    margin: 0;
-    padding: 0;
-    padding: 10px;
-    text-decoration: none;
-    border-bottom: 1px solid rgba(0,0,0,0.25);
-    text-align: center;
-}
-#layerpicker a:last-child {
-    border: none;
-}
-#layerpicker a:hover {
-    background-color: #f8f8f8;
-    color: #404040;
-}
-#layerpicker a.active {
-    background-color: #3887be;
-    color: #ffffff;
-}
-#layerpicker a.active:hover {
-    background: #3074a4;
+    min-width: 250px;
+    max-width: 250px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    z-index: 999;
+    background-color: #ffffff;
+    transition: all 0.3s;
 }
 
-@media (min-width: 992px){
-  /*medium screen sizes*/
-  .parent{
-    display: table;
+#layerpicker.active {
+    margin-left: -250px;
+}
+
+#layerpicker .layerpicker-header {
+    background: #0986c8;
+}
+
+.layerpicker input:active +.toggle-button{opacity: .9;}
+.layerpicker input:checked +.toggle-button{
+    -webkit-filter: none;
+       -moz-filter: none;
+            filter: none;
+}
+.toggle-button{
+    cursor:pointer;
+    display:inline-block;
     width: 100%;
-  }
-  .parent >div{
-    display: table-cell;
-    float: inherit; /*???????*/
-
-  }
-  .no-left-pad{
-      padding-left:0;
-  }
-  .post-preview-container{
-
-    margin: 30px 0px;
-    padding: 20px;
-    background-color:#f0f0f0;
-  }
-  .post-preview-container:hover{
-    background-color: #dedede;
-  }
+    height: 30px;
+    padding: 2px;
+    -webkit-transition: all 100ms ease-in;
+       -moz-transition: all 100ms ease-in;
+            transition: all 100ms ease-in;
+    -webkit-filter: brightness(1.8) grayscale(1) opacity(.7);
+       -moz-filter: brightness(1.8) grayscale(1) opacity(.7);
+            filter: brightness(1.8) grayscale(1) opacity(.7);
 }
-footer{
-  margin: 30px 0px;
-  padding: 20px;
+.toggle-button:hover{
+  /* background-color: #0986c8; */
+    -webkit-filter: brightness(1.2) grayscale(.5) opacity(.9);
+       -moz-filter: brightness(1.2) grayscale(.5) opacity(.9);
+            filter: brightness(1.2) grayscale(.5) opacity(.9);
+}
+
+/* https://codepen.io/ksycz/pen/bMJyBP */
+pre { color: crimson; }
+.hide { display: none; }
+input[type="checkbox"] + .fa,
+input[type="checkbox"] + label > .fa,
+input[type="radio"] + .fa,
+input[type="radio"] + label > .fa { cursor: pointer; }
+
+/* Unchecked */
+input[type="checkbox"] + .fa-eye:before,
+input[type="checkbox"] + label > .fa-eye:before,
+input[type="radio"] + .fa-eye:before,
+input[type="radio"] + label > .fa-eye:before { content: "\f070"; } /* fa-eye-slash */
+
+/* Checked */
+input[type="checkbox"]:checked + .fa-eye:before,
+input[type="checkbox"]:checked + label > .fa-eye:before,
+input[type="radio"]:checked + .fa-eye:before,
+input[type="radio"]:checked + label > .fa-eye:before { content: "\f06e"; }
+
+
+
+/* ---------------------------------------------------
+    CONTENT STYLE
+----------------------------------------------------- */
+#map_wrapper {
+    width: calc(100% - 250px);
+    min-height: 100vh;
+    transition: all 0.3s;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+#map_wrapper.active {
+    width: 100%;
+}
+.custom-map-ctrl-top-left {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 3;
+
+}
+.custom-map-ctrl-group{
+  margin: 10px;
+  float: left;
+}
+
+.tglBtn{
+  opacity: 0;
+  transition: all 0.8s cubic-bezier(0.810, -0.330, 0.345, 1.375);
+  display: none;
+}
+.tglBtn.active{
+  opacity: 1;
+  display: block;
+}
+/* ---------------------------------------------------
+    MEDIAQUERIES
+----------------------------------------------------- */
+
+@media (max-width: 768px) {
+    #layerpickerCollapse span {
+        display: none;
+    }
 }

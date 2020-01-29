@@ -20,12 +20,13 @@
     <meta name="msapplication-TileColor" content="#da532c">
     <meta name="theme-color" content="#ffffff">
 
-<script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.41.0/mapbox-gl.js'></script>
-<link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.41.0/mapbox-gl.css' rel='stylesheet' />
-<link href='https://www.mapbox.com/base/latest/base.css' rel='stylesheet' />
+    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.41.0/mapbox-gl.js'></script>
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.41.0/mapbox-gl.css' rel='stylesheet' />
+    <link href='https://www.mapbox.com/base/latest/base.css' rel='stylesheet' />
+    <!-- <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">  -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
 
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-<link rel="stylesheet" href="static/css/map_style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -37,14 +38,29 @@
   <body>
 
 
-<!-- UNCOMMENT TO ACTIVATE LAYER TOGGLE -->
-<!-- <nav id="layerpicker"></nav> -->
-<div id="map_wrapper"></div>
-<!-- <div id="layerpicker" class='filter-ctrl'>
-</div> -->
+    <div class="wrapper">
+      <!-- Sidebar  -->
+      <nav id="layerpicker" class="layerpicker active">
+        <div class="layerpicker-header w-100 text-center p-2">
+          <img  class="img-fluid main-logo" src="static/img/reclaim-logo.png" alt="">
+        </div>
+        <div id="picker-container" class="w-100 p-2">
+          <ul id="layerPickerList" class="list-unstyled components"></ul>
+        </div>
+      </nav>
 
-
-
+      <!-- Page Content  -->
+      <div id="map_wrapper" class="active">
+        <div class="custom-map-ctrl-top-left">
+          <div class="custom-map-ctrl-group">
+            <button type="button" id="sidebarCollapse" class="btn btn-light ">
+                <span class="tglBtn active"><i class="fas fa-layer-group"></i></span>
+                <span class="tglBtn "><i class="fas fa-times"></i></span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v2.0.1/mapbox-gl-geocoder.js'></script>
@@ -56,12 +72,13 @@
   wards = 0;
 
 </script>
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script> -->
 
-<script src="static/js/toggle_layers.js"></script>
-<script src="static/js/map_creation.js"></script>
+<script src="static/js/config.js"></script>
+<script src="static/js/functions.js"></script>
+<script src="static/js/main.js"></script>
 
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <!-- Include all compiled plugins (below), or include individual files as needed -->
 <!-- <script src="static/js/bootstrap.min.js"></script> -->
 </body>
