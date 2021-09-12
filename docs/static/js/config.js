@@ -28,7 +28,7 @@ sources = [
     "name": "Phila City Council",
     "data":{
       "type": "geojson",
-      "data": "https://raw.githubusercontent.com/aerispaha/reclaim_map/dev/data/spatial/20190401/philly-council-officials.geojson"
+      "data": "https://raw.githubusercontent.com/reclaimphiladelphia/reclaim_map/master/data/spatial/20210912/philly-council-officials.geojson"
     }
   },
   {
@@ -36,7 +36,7 @@ sources = [
     "name":"PA Legislative",
     "data":{
       "type": "geojson",
-      "data": "https://raw.githubusercontent.com/aerispaha/reclaim_map/dev/data/spatial/20190401/pa-legis-officials-2019.geojson"
+      "data": "https://raw.githubusercontent.com/reclaimphiladelphia/reclaim_map/master/data/spatial/20210912/pa-legis-officials.geojson"
     }
   },
   {
@@ -44,7 +44,7 @@ sources = [
     "name":"PA Senate",
     "data":{
       "type": "geojson",
-      "data": "https://raw.githubusercontent.com/aerispaha/reclaim_map/dev/data/spatial/20190401/pa-senate-officials-2019.geojson"
+      "data": "https://raw.githubusercontent.com/reclaimphiladelphia/reclaim_map/master/data/spatial/20210912/pa-senate-officials.geojson"
     }
   },
   {

@@ -53,12 +53,11 @@ def join_committeepeople_to_divisions(cp_pth=None, div_pth=None, out_pth=None):
         ward =  int(properties['DIVISION_NUM'][:2])
         div = int(properties['DIVISION_NUM'][2:])
 
-        print (properties)
         try:
             #look up in dataframe
-            peep_data = df.ix[ward, div]
+            peep_data = df.loc[ward, div]
             peep_list = peep_data.to_json(orient='records')
-
+            # print(properties)
             #update the geojson properties
             properties.update({'committeepeople':json.loads(peep_list)})
 
