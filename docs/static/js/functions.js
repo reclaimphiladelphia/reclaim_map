@@ -8,7 +8,7 @@ function UIState(){
   this.lat = url.searchParams.get('lat') || 39.94848811327782;
   this.zoom = url.searchParams.get('z') || 13;
   this.filterVal = Number(url.searchParams.get('fval') || NaN);
-  this.activeLayer = url.searchParams.get('lyr') || 'phila-wards';
+  this.activeLayer = url.searchParams.get('lyr') || 'divisions';
 
   // that = this;
   this.update_url = function(){
