@@ -4,7 +4,7 @@ sources = [
     "name":"Divisions",
     "data":{
       "type": "geojson",
-      "data": "https://raw.githubusercontent.com/aerispaha/reclaim_map/dev/data/spatial/20190401/divisions-officials.geojson"
+      "data": "https://raw.githubusercontent.com/reclaimphiladelphia/reclaim_map/master/data/spatial/20220926/divisions-officials.geojson"
     },
   },
   {
@@ -12,7 +12,7 @@ sources = [
     "name":"Philly Wards",
     "data":{
       "type": "geojson",
-      "data": "https://raw.githubusercontent.com/aerispaha/reclaim_map/dev/data/spatial/20190401/wards-officials.geojson"
+      "data": "https://raw.githubusercontent.com/reclaimphiladelphia/reclaim_map/master/data/spatial/20220926/wards-officials.geojson"
     }
   },
   {
